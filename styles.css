@@ -5,11 +5,8 @@
   --serif: ui-serif, "New York", "Iowan Old Style", Georgia, serif;
 
   /* light */
-  --base: #eef0fb;
-  --b1: rgba(255, 196, 214, .75);
-  --b2: rgba(186, 178, 255, .70);
-  --b3: rgba(160, 216, 255, .75);
-  --b4: rgba(255, 220, 170, .65);
+  --base: #f3f2ef;
+  --dot: rgba(30, 28, 24, .16);
   --label: #16161c;
   --label2: rgba(32, 32, 44, .66);
   --label3: rgba(32, 32, 44, .45);
@@ -30,8 +27,8 @@
   --glass-hi: rgba(255, 255, 255, .95);
   --glass-lo: rgba(255, 255, 255, .25);
   --field: rgba(255, 255, 255, .55);
-  --shadow: 0 1px 1px rgba(20, 20, 60, .04), 0 6px 18px rgba(40, 40, 110, .08), 0 22px 44px -18px rgba(40, 40, 110, .18);
-  --shadow-lg: 0 2px 4px rgba(20, 20, 60, .05), 0 18px 40px rgba(40, 40, 110, .16), 0 40px 80px -30px rgba(40, 40, 110, .30);
+  --shadow: 0 1px 1px rgba(20, 20, 24, .04), 0 6px 18px rgba(30, 30, 36, .08), 0 22px 44px -18px rgba(30, 30, 36, .20);
+  --shadow-lg: 0 2px 4px rgba(20, 20, 24, .05), 0 18px 40px rgba(30, 30, 36, .16), 0 40px 80px -30px rgba(30, 30, 36, .30);
   --blur: blur(22px) saturate(185%);
   --blur-strong: blur(30px) saturate(200%);
 
@@ -49,11 +46,8 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --base: #0b0c16;
-    --b1: rgba(122, 52, 140, .55);
-    --b2: rgba(70, 58, 190, .55);
-    --b3: rgba(20, 96, 150, .55);
-    --b4: rgba(16, 120, 108, .45);
+    --base: #0d0d0f;
+    --dot: rgba(255, 255, 255, .14);
     --label: #f4f4fa;
     --label2: rgba(235, 235, 250, .70);
     --label3: rgba(235, 235, 250, .45);
@@ -64,10 +58,10 @@
     --idea: #a9a1ff;
     --star: #ffd23f;
     --danger: #ff6b61;
-    --glass: rgba(38, 40, 58, .42);
-    --glass-strong: rgba(30, 32, 46, .72);
-    --sheet-bg: rgba(26, 27, 40, .88);
-    --glass-solid: #1c1d2a;
+    --glass: rgba(44, 44, 48, .48);
+    --glass-strong: rgba(34, 34, 38, .74);
+    --sheet-bg: rgba(28, 28, 31, .88);
+    --glass-solid: #1c1c1f;
     --glass-edge: rgba(255, 255, 255, .14);
     --glass-hi: rgba(255, 255, 255, .22);
     --glass-lo: rgba(255, 255, 255, .05);
@@ -95,20 +89,14 @@ button, input, textarea { font: inherit; color: inherit; letter-spacing: inherit
 a { color: inherit; }
 button { -webkit-user-select: none; user-select: none; }
 
-/* ---------- Living background ---------- */
-.bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; background: var(--base); }
-.bg i {
-  position: absolute; width: 95vmax; height: 95vmax; border-radius: 50%;
-  will-change: transform;
+/* ---------- Paper background ---------- */
+.bg {
+  position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+  background-color: var(--base);
+  background-image: radial-gradient(circle, var(--dot) 1.1px, transparent 1.6px);
+  background-size: 22px 22px;
+  background-position: center top;
 }
-.bg .b1 { background: radial-gradient(closest-side, var(--b1), transparent); top: -40vmax; left: -35vmax; animation: drift1 36s ease-in-out infinite alternate; }
-.bg .b2 { background: radial-gradient(closest-side, var(--b2), transparent); top: -30vmax; right: -45vmax; animation: drift2 42s ease-in-out infinite alternate; }
-.bg .b3 { background: radial-gradient(closest-side, var(--b3), transparent); bottom: -45vmax; left: -30vmax; animation: drift3 48s ease-in-out infinite alternate; }
-.bg .b4 { background: radial-gradient(closest-side, var(--b4), transparent); bottom: -40vmax; right: -40vmax; animation: drift4 40s ease-in-out infinite alternate; }
-@keyframes drift1 { to { transform: translate(18vmax, 22vmax) scale(1.1); } }
-@keyframes drift2 { to { transform: translate(-20vmax, 26vmax) scale(.92); } }
-@keyframes drift3 { to { transform: translate(24vmax, -18vmax) scale(1.08); } }
-@keyframes drift4 { to { transform: translate(-16vmax, -24vmax) scale(1.12); } }
 
 /* ---------- Glass material ---------- */
 .glass {
@@ -471,14 +459,14 @@ mark { background: color-mix(in srgb, var(--tint) 24%, transparent); color: inhe
 html.solid .glass, html.solid .tabbar, html.solid .sheet, html.solid #toast, html.solid .topbar::before { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 html.solid .glass, html.solid .tabbar, html.solid .sheet, html.solid #toast { background: var(--glass-solid); }
 html.solid .topbar::before { background: var(--base); -webkit-mask-image: none; mask-image: none; inset: 0; }
-html.solid .bg i { display: none; }
+html.solid .bg { background-image: none; }
 html.solid .pull-card .shine, html.solid .pull-card::after { display: none; }
 html.solid .fab { background: var(--tint); }
 @media (prefers-reduced-transparency: reduce) {
   .glass, .tabbar, .sheet, #toast, .topbar::before { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
   .glass, .tabbar, .sheet, #toast { background: var(--glass-solid); }
   .topbar::before { background: var(--base); -webkit-mask-image: none; mask-image: none; inset: 0; }
-  .bg i { display: none; }
+  .bg { background-image: none; }
   .pull-card .shine, .pull-card::after { display: none; }
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
