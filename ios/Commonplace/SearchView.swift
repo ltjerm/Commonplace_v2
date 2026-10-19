@@ -78,7 +78,9 @@ struct SearchView: View {
                 .foregroundStyle(.secondary)
             
             TextField("Words, authors, #tags", text: $query)
+                #if os(iOS)
                 .textInputAutocapitalization(.never)
+                #endif
                 .autocorrectionDisabled()
                 .focused($isSearchFocused)
                 .submitLabel(.search)

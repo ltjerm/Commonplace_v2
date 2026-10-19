@@ -61,7 +61,9 @@ struct EntryEditorView: View {
                 .padding(.bottom, 40)
             }
             .navigationTitle(isEditing ? "Edit" : "New entry")
+            #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
@@ -110,7 +112,7 @@ struct EntryEditorView: View {
             .font(.system(size: 20, design: .serif))
             .lineLimit(5...20)
             .padding(16)
-            .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .background(Color.secondary.opacity(0.12), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
             .focused($focusedField, equals: .text)
     }
     
@@ -122,10 +124,12 @@ struct EntryEditorView: View {
                 .padding(.horizontal, 14)
             
             TextField(type.authorPlaceholder, text: $author)
+                #if os(iOS)
                 .textContentType(.name)
+                #endif
                 .padding(.horizontal, 18)
                 .padding(.vertical, 14)
-                .background(Color(.secondarySystemBackground), in: Capsule())
+                .background(Color.secondary.opacity(0.12), in: Capsule())
                 .focused($focusedField, equals: .author)
                 .submitLabel(.next)
                 .onSubmit {
@@ -142,11 +146,13 @@ struct EntryEditorView: View {
                 .padding(.horizontal, 14)
             
             TextField("discipline, stoic, work", text: $tagsString)
+                #if os(iOS)
                 .textInputAutocapitalization(.never)
+                #endif
                 .autocorrectionDisabled()
                 .padding(.horizontal, 18)
                 .padding(.vertical, 14)
-                .background(Color(.secondarySystemBackground), in: Capsule())
+                .background(Color.secondary.opacity(0.12), in: Capsule())
                 .focused($focusedField, equals: .tags)
                 .submitLabel(.done)
                 .onSubmit {
