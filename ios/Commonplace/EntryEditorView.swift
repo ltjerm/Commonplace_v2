@@ -191,10 +191,10 @@ struct EntryEditorView: View {
             HStack {
                 Text(favorite ? "★" : "☆")
                     .font(.title2)
-                    .foregroundStyle(favorite ? .yellow : .secondary)
+                    .foregroundColor(favorite ? Color.yellow : Color.secondary)
                 
                 Text("Favorite")
-                    .foregroundStyle(favorite ? .primary : .secondary)
+                    .foregroundColor(favorite ? Color.primary : Color.secondary)
                 
                 Spacer()
             }

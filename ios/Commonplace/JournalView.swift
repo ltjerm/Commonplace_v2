@@ -163,7 +163,7 @@ struct JournalView: View {
         return VStack(spacing: 8) {
             Text(quoteGlyph)
                 .font(.system(size: 64, design: .serif))
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.accentColor)
                 .opacity(0.8)
             
             if store.entries.isEmpty {
@@ -218,13 +218,13 @@ struct FilterChip: View {
         Button(action: action) {
             Text(label)
                 .font(.system(size: 15, weight: .medium))
-                .foregroundStyle(isSelected ? (isTag ? .primary : .white) : (isTag ? .secondary : .primary))
+                .foregroundColor(isSelected ? (isTag ? Color.primary : Color.white) : (isTag ? Color.secondary : Color.primary))
                 .padding(.horizontal, 16)
                 .padding(.vertical, 10)
                 .background {
                     if isSelected {
                         if isTag {
-                            Capsule().fill(.primary.opacity(0.15))
+                            Capsule().fill(Color.primary.opacity(0.15))
                         } else {
                             Capsule().fill(Color.primary)
                         }

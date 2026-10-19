@@ -67,10 +67,10 @@ struct ContentView: View {
             } label: {
                 Image(systemName: "plus")
                     .font(.system(size: 22, weight: .semibold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color.white)
                     .frame(width: 56, height: 56)
                     .background(Color.accentColor.gradient, in: Circle())
-                    .shadow(color: .accentColor.opacity(0.4), radius: 10, y: 5)
+                    .shadow(color: Color.accentColor.opacity(0.4), radius: 10, y: 5)
             }
             .padding(.leading, 10)
         }
@@ -90,7 +90,7 @@ struct ContentView: View {
                 Text(label)
                     .font(.system(size: 10, weight: .semibold))
             }
-            .foregroundStyle(selectedTab == index ? Color.accentColor : .secondary)
+            .foregroundColor(selectedTab == index ? Color.accentColor : Color.secondary)
             .frame(maxWidth: .infinity)
             .frame(height: 52)
             .contentShape(Rectangle())

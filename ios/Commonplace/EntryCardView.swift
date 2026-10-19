@@ -24,7 +24,7 @@ struct EntryCardView: View {
                 } label: {
                     Image(systemName: entry.favorite ? "star.fill" : "star")
                         .font(.system(size: 18))
-                        .foregroundStyle(entry.favorite ? .yellow : .tertiary)
+                        .foregroundColor(entry.favorite ? Color.yellow : Color.secondary.opacity(0.6))
                         .symbolEffect(.bounce, value: entry.favorite)
                 }
                 .buttonStyle(.plain)

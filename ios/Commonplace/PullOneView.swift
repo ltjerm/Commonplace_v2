@@ -86,7 +86,7 @@ struct PullOneView: View {
             if entry.type == .quote {
                 Text(quoteGlyph)
                     .font(.system(size: 72, design: .serif))
-                    .foregroundStyle(.accent.opacity(0.7))
+                    .foregroundStyle(Color.accentColor.opacity(0.7))
                     .frame(height: 40)
             }
             
@@ -154,7 +154,7 @@ struct PullOneView: View {
                     Text("Pull another")
                 }
                 .font(.headline)
-                .foregroundStyle(.white)
+                .foregroundStyle(Color.white)
                 .frame(maxWidth: .infinity)
                 .frame(height: 52)
                 .background(Color.accentColor.gradient, in: Capsule())
@@ -169,7 +169,7 @@ struct PullOneView: View {
         return VStack(spacing: 8) {
             Text(quoteGlyph)
                 .font(.system(size: 64, design: .serif))
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.accentColor)
                 .opacity(0.8)
             
             Text("Nothing to pull yet.")

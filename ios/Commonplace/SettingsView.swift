@@ -103,7 +103,7 @@ struct SettingsView: View {
                     }
                     Spacer()
                     Image(systemName: "square.and.arrow.up")
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(Color.accentColor)
                 }
             }
             
@@ -113,14 +113,14 @@ struct SettingsView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Import JSON")
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(Color.primary)
                         Text("Merges by id; newer edits win")
                             .font(.caption)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color.secondary)
                     }
                     Spacer()
                     Image(systemName: "square.and.arrow.down")
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(Color.accentColor)
                 }
             }
         }
