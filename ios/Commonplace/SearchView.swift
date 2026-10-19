@@ -139,7 +139,7 @@ struct SearchView: View {
     
     private var noResults: some View {
         VStack(spacing: 8) {
-            Text("No matches for "\(query)"")
+            Text("No matches for \"\(query)\"")
                 .font(.headline)
         }
         .padding(40)

@@ -160,7 +160,7 @@ struct JournalView: View {
     
     private var emptyState: some View {
         VStack(spacing: 8) {
-            Text(""")
+            Text("\u{201C}")
                 .font(.system(size: 64, design: .serif))
                 .foregroundStyle(.accent)
                 .opacity(0.8)
