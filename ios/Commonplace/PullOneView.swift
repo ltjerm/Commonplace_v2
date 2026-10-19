@@ -81,9 +81,10 @@ struct PullOneView: View {
     }
     
     private func pullCard(_ entry: Entry) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
+        let quoteGlyph = String(UnicodeScalar(0x201C)!)
+        return VStack(alignment: .leading, spacing: 16) {
             if entry.type == .quote {
-                Text("\u{201C}")
+                Text(quoteGlyph)
                     .font(.system(size: 72, design: .serif))
                     .foregroundStyle(.accent.opacity(0.7))
                     .frame(height: 40)
@@ -164,8 +165,9 @@ struct PullOneView: View {
     }
     
     private var emptyState: some View {
-        VStack(spacing: 8) {
-            Text("\u{201C}")
+        let quoteGlyph = String(UnicodeScalar(0x201C)!)
+        return VStack(spacing: 8) {
+            Text(quoteGlyph)
                 .font(.system(size: 64, design: .serif))
                 .foregroundStyle(.accent)
                 .opacity(0.8)

@@ -159,8 +159,9 @@ struct JournalView: View {
     }
     
     private var emptyState: some View {
-        VStack(spacing: 8) {
-            Text("\u{201C}")
+        let quoteGlyph = String(UnicodeScalar(0x201C)!)
+        return VStack(spacing: 8) {
+            Text(quoteGlyph)
                 .font(.system(size: 64, design: .serif))
                 .foregroundStyle(.accent)
                 .opacity(0.8)
